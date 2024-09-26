@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Anime world</title>
+
+  <style>
+
+* {
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Signika Negative", sans-serif;
+    color: white;
+}
+
+body {
+    background-color: black;
+    padding: 0 25px;
+    padding-top: 95px;
+    padding-left: 375px;   
+}
+
+
+/*sidebar*/
+aside {
+    background-color: black;
+    position: fixed;
+    z-index: 500;
+    left: 0;
+    top: 80px;
+    bottom: 0;
+    width: 300px;
+    border-right: 1px solid white;
+}
+
+.sidebar {
+    list-style-type: none;
+}
+
+.sidebar-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: 50px 0;    
+    margin-left: 20px;
+}
+
+.sidebar-title {
+    font-family: "Signika Negative", sans-serif;
+    font-size: 25px;
+    transition: all .5s ease;
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+.sidebar-title:hover {
+    transform: translateX(15px);
+    color: red;
+}
+
+.sidebar-link i {
+    font-size: 20px;
+}
+
+
+/*header*/
+header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 80px;
+    border-bottom: 1px solid white;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: black;
+    padding: 0 20px;
+}
+
+
+nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style-type: none; /* This removes the bullet points */
+}
+
+nav i {
+    font-size: 25px;
+    margin: 0 50px;
+    transition: all .5s ease;
+}
+
+nav i:hover {
+    text-decoration: underline;
+}
+
+.website-name {
+    font-family: "Permanent Marker", cursive;
+    font-size: 40px;
+    white-space: nowrap;
+    transition: all .5s ease;
+    cursor: pointer;
+}
+
+.website-name:hover {
+    transform: translateX(20px);
+    color: red;
+}
+
+
+/*content*/
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 16px;
+    row-gap: 25px;
+}
+
+.content {
+    display: inline-block;
+    width: 200px;
+}
+
+
+.firstline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.heart-icon i {
+    font-size: 25px;
+    transition: all .5s ease;
+}
+
+.heart-icon i:hover {
+    transform: scale(1.5);
+    color: red;
+}
+
+
+.english-name {
+    font-family: "Permanent Marker", cursive;
+    font-size: 30px;
+    transition: all .5s ease;
+    /* line-height: 30px; */
+}
+
+.english-name:hover {
+    transform: translateX(-1.5px);
+    /* Increase size by 20% on hover */
+    color: red;
+}
+
+.poster-img img {
+    width: 200px;
+    height: 100%;
+    border: 1px solid white;
+    border-radius: 8px;
+    transition: all .5s ease;
+}
+.poster-img {
+    position: relative;
+
+}
+
+.tooltip {
+    position: absolute;
+    background-color: black;
+    padding: 15px 22px;
+    border-radius: 8px;
+    opacity: 0;
+    pointer-events: none;
+    transition: all .5s ease;
+    white-space: nowrap;
+    border: 1px solid white;
+}
+
+.poster-img:hover .tooltip {
+    opacity: 1;
+}
+
+.poster-img img:hover {
+    /* transform: scale(1.1); */
+    transform:translateY(-14px);
+    border-color: red;
+}
+
+.anime-info {
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+
+
+
+  </style>
+
+  <!--fonts-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Signika+Negative:wght@300..700&display=swap" rel="stylesheet">
+
+  <!--boxicons link-->
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+  <!--remixicons link-->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+
+</head>
+<body>
+
+
+  <header>
+    <div class="logo">
+      <div class="website-name">
+        ANIME WORLD
+      </div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="home.html"><i class='bx bx-home-alt'></i></a></li>
+        <li><a href="signUp.html"><i class='bx bx-user-circle'></i></a></li>
+        <li><a href="https://mail.google.com"><i class='bx bx-envelope'></i></a></li>
+        <li><a href="https://web.whatsapp.com/"><i class='bx bxl-whatsapp'></i></a></li>
+        <li><a href="https://www.instagram.com/"><i class='bx bxl-instagram'></i></a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <aside>
+      <ul class="sidebar">
+        <li>
+          <div class="sidebar-link">
+            <i class='bx bxs-user-account'></i>
+            <div class="sidebar-title">
+              Account
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="sidebar-link">
+            <i class='bx bx-heart'></i>
+            <div class="sidebar-title">
+              Liked
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="sidebar-link">
+            <i class='bx bx-question-mark'></i>
+            <div class="sidebar-title">
+              Know me
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="sidebar-link">
+            <i class='bx bx-cog'></i>
+            <div class="sidebar-title">
+              Settings
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="sidebar-link">
+            <i class='bx bx-log-out'></i>
+            <div class="sidebar-title">
+              Log out
+            </div>
+          </div>
+        </li>
+      </ul>
+  </aside>
+  
+
+  <main>
+    <!--ereased-->
+    <section>
+      <div class="content">
+        <a href="https://youtu.be/dky7my5xd2c?si=HYb0u9qYPN2cfhWD">
+          <div class="poster-img">
+            <img src="media/Erased.jpeg">
+            <div class="tooltip">
+              click to see the trailer!
+            </div>
+          </div>
+        </a>
+        <div class="firstline">
+          <div class="english-name">
+            Erased
+          </div>
+          <div class="heart-icon">
+            <i class='bx bx-heart'></i>
+          </div>
+        </div>
+        <div class="anime-info">
+          <div class="date">
+            year: 2016
+          </div>
+          <div class="seasons">
+            seasons: 1
+          </div>
+          <div class="num-episodes">
+            episodes: 12
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--deathnote-->
+    <section>
+      <div class="content">
+        <a href="https://youtu.be/NlJZ-YgAt-c?si=g7vYXkn1_6fhbpg8">
+          <div class="poster-img">
+            <img src="media/DeathNote.jpeg">
+            <div class="tooltip">
+              click to see the trailer!
+            </div>
+          </div>
+        </a>
+        <div class="firstline">
+          <div class="english-name">
+            Death Note
+          </div>
+          <div class="heart-icon">
+            <i class='bx bx-heart'></i>
+          </div>
+        </div>
+        <div class="anime-info">
+          <div class="date">
+            year: 2006
+          </div>
+          <div class="seasons">
+            seasons: 1
+          </div>
+          <div class="num-episodes">
+            episodes: 37
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--spritid away-->
+    <section>
+      <div class="content">
+        <a href="https://youtu.be/ByXuk9QqQkk?si=CQ3fOLTpQ0SFTB1g">
+          <div class="poster-img">
+            <img src="media/sipritedaway.jpeg" alt="">
+            <div class="tooltip">
+              click to see the trailer!
+            </div>
+          </div>
+        </a>
+        <div class="firstline">
+          <div class="english-name">
+            Spritied Away
+          </div>
+          <div class="heart-icon">
+            <i class='bx bx-heart'></i>
+          </div>
+        </div>
+        <div class="anime-info">
+          <div class="date">
+            year: 2001
+          </div>
+          <div class="seasons">
+            seasons: 1
+          </div>
+          <div class="num-episodes">
+            episodes: 1
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--Attack on titan-->
+    <section>
+      <div class="content">
+        <a href="https://youtu.be/MGRm4IzK1SQ?si=fTOMdRyhxp_ENK4b" target="_blank">
+          <div class="poster-img">
+            <img src="media/AttackOnTitan.jpeg" alt="">
+            <div class="tooltip">
+              click to see the trailer!
+            </div>
+          </div>
+        </a>
+        <div class="firstline">
+          <div class="english-name">
+            Attack on Titan
+          </div>
+          <div class="heart-icon">
+            <i class='bx bx-heart'></i>
+          </div>
+        </div>
+        <div class="anime-info">
+          <div class="date">
+            year: 2013
+          </div>
+          <div class="seasons">
+            seasons: 4
+          </div>
+          <div class="num-episodes">
+            episodes: 89
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--Ranking of Kings-->
+    <section>
+      <div class="content">
+        <a href="https://youtu.be/Tr1ahorojPg?si=-3CI8l8nt1qCcIUL">
+          <div class="poster-img">
+            <img src="media/Ranking of Kings.jpeg" alt="">
+            <div class="tooltip">
+              click to see the trailer!
+            </div>
+          </div>
+        </a>
+        <div class="firstline">
+          <div class="english-name">
+            Ranking of Kings
+          </div>
+          <div class="heart-icon">
+            <i class='bx bx-heart'></i>
+          </div>
+        </div>
+        <div class="anime-info">
+          <div class="date">
+            year: 2021
+          </div>
+          <div class="seasons">
+            seasons: 2
+          </div>
+          <div class="num-episodes">
+            episodes: 33
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--vinland saga-->
+    <section>
+      <div class="content">
+        <a href="https://www.youtube.com/watch?v=f8JrZ7Q_p-8&ab_channel=Sentai">
+          <div class="poster-img">
+            <img src="media/VinlandSaga.jpeg">
+            <div class="tooltip">
+              click to see the trailer!
+            </div>
+          </div>
+        </a>
+        <div class="firstline">
+          <div class="english-name">
+            Vinland Saga
+          </div>
+          <div class="heart-icon">
+            <i class='bx bx-heart'></i>
+          </div>
+        </div>
+        <div class="anime-info">
+          <div class="date">
+            year: 2019
+          </div>
+          <div class="seasons">
+            seasons: 2
+          </div>
+          <div class="num-episodes">
+            episodes: 48
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--dororo-->
+    <section>
+      <div class="content">
+        <a href="https://www.youtube.com/watch?v=YgHPBwLu0BA&ab_channel=Sentai">
+          <div class="poster-img">
+            <img src="media/Dororo.jpeg">
+            <div class="tooltip">
+              click to see the trailer!
+            </div>
+          </div>
+        </a>
+        <div class="firstline">
+          <div class="english-name">
+            Dororo
+          </div>
+          <div class="heart-icon">
+            <i class='bx bx-heart'></i>
+          </div>
+        </div>
+        <div class="anime-info">
+          <div class="date">
+            year: 2019
+          </div>
+          <div class="seasons">
+            seasons: 1
+          </div>
+          <div class="num-episodes">
+            episodes: 24
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--princess mononoke-->
+    <section>
+      <div class="content">
+        <a href="https://www.youtube.com/watch?v=4OiMOHRDs14&ab_channel=CrunchyrollStoreAustralia">
+          <div class="poster-img">
+            <img src="media/PrincessMononoke.jpeg">
+            <div class="tooltip">
+              click to see the trailer!
+            </div>
+          </div>
+        </a>
+        <div class="firstline">
+          <div class="english-name">
+            Princess Mononoke
+          </div>
+          <div class="heart-icon">
+            <i class='bx bx-heart'></i>
+          </div>
+        </div>
+        <div class="anime-info">
+          <div class="date">
+            year: 1997
+          </div>
+          <div class="seasons">
+            seasons: 1
+          </div>
+          <div class="num-episodes">
+            episodes: 1
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>
